@@ -29,6 +29,6 @@ Oxford Town Centre | 55 | 58 | 0 | 5 | 95.8
 
 ### ☕ MobileNet SSD(Caffe)
 
-_Object detection model:_ [MobileNetSSD Caffe](https://github.com/chuanqi305/MobileNet-SSD)
+_🔗 Object detection model:_ [MobileNetSSD Caffe](https://github.com/chuanqi305/MobileNet-SSD)
 
 _CC:_ [chuanqi305](https://github.com/chuanqi305/), [FreeApe](https://github.com/FreeApe/VGG-or-MobileNet-SSD)
