@@ -47,8 +47,8 @@ Oxford Town Centre | 55 | 58 | 0 | 5 | 95.8
 
 ---
 
-## Kindly check out below URL:
+### Kindly check out below URL:
 
-### ☕ [![MobileNetSSD Caffe](https://img.shields.io/badge/MobileNet_SSD_Caffe-Github-lightgrey)](https://github.com/chuanqi305/MobileNet-SSD)
+☕ [![MobileNetSSD Caffe](https://img.shields.io/badge/MobileNet_SSD_Caffe-Github-lightgrey)](https://github.com/chuanqi305/MobileNet-SSD)
 
 _Credit:_ [![Github](https://img.shields.io/badge/chuanqi305-Github-lightgrey)](https://github.com/chuanqi305/) [![Github](https://img.shields.io/badge/FreeApe-Github-lightgrey)](https://github.com/FreeApe/VGG-or-MobileNet-SSD)
