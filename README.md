@@ -4,7 +4,8 @@ The idea of this project is to use MobileNet SSD with Caffe implementation as th
 </br>
 
 _💻 To run the program on command line:_
-**Non-Threading program:**
+
+**Non-Threading program**
 
 ```sh
 python3 social-distance.py --video [path to input] --prototxt [path to MobileNetSSD config] --weights [path to MobileNetSSD weights]
@@ -14,7 +15,9 @@ python3 social-distance.py --video [path to input] --prototxt [path to MobileNet
 python3 safety-violation.py --video [path to input] --prototxt [path to MobileNetSSD config] --weights [path to MobileNetSSD weights]
 ```
 
-**Non-Threading program:**
+</br>
+
+**Threading program**
 
 ```sh
 python3 social-distance(threading).py --video [path to input] --prototxt [path to MobileNetSSD config] --weights [path to MobileNetSSD weights]
