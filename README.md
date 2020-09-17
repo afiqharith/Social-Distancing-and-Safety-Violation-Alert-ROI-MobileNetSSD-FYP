@@ -35,9 +35,13 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 
 ### 🎬 Output example:
 
+**_Social distance monitoring:_**
 | ![outputimage](/images/output.gif) |
 | ---------------------------------- |
 
+**_safety violation alert based on segmented ROI:_**
+| ![outputimage](/images/output2.gif) |
+| ----------------------------------- |
 
 **🎯 Accuracy for social distance monitoring:**
 
