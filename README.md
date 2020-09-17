@@ -33,6 +33,12 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 
 </br>
 
+### 🎬 Output example:
+
+| ![outputimage](/images/output.gif) |
+| ---------------------------------- |
+
+
 **🎯 Accuracy for social distance monitoring:**
 Dataset | TP | TN | FP | FN | %
 ------- | -- | -- | -- | -- | --
