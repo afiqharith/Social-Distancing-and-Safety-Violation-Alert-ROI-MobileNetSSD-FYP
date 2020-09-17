@@ -53,9 +53,9 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 
 **🎯 Accuracy for safety violation alert based on segmented ROI:**
 
-| Dataset            | TP  | TN  | FP  | FN  | %    |
-| ------------------ | --- | --- | --- | --- | ---- |
-| Oxford Town Centre | 55  | 58  | 0   | 5   | 95.8 |
+| Dataset | TP  | TN  | FP  | FN  | %    |
+| ------- | --- | --- | --- | --- | ---- |
+| CamNeT  | 55  | 58  | 0   | 5   | 95.8 |
 
 ---
 
@@ -64,3 +64,8 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 ☕ [![MobileNetSSD Caffe](https://img.shields.io/badge/MobileNet_SSD_Caffe-Github-lightgrey)](https://github.com/chuanqi305/MobileNet-SSD)
 
 _Credit:_ [![Github](https://img.shields.io/badge/chuanqi305-Github-lightgrey)](https://github.com/chuanqi305/) [![Github](https://img.shields.io/badge/FreeApe-Github-lightgrey)](https://github.com/FreeApe/VGG-or-MobileNet-SSD)
+
+**📊 Dataset**
+
+_Dataset from Oxford TownCentre:_ <https://megapixels.cc/>; MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face Recognition Image Datasets
+_Dataset from CamNeT:_ <https://vcg.ece.ucr.edu/datasets>; A Camera Network Tracking (CamNeT) Dataset and Performance Baseline
