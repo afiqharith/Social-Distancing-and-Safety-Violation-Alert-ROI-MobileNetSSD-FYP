@@ -40,16 +40,18 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 
 
 **🎯 Accuracy for social distance monitoring:**
-Dataset | TP | TN | FP | FN | %
-------- | -- | -- | -- | -- | --
-Oxford Town Centre | 11 | 19 | 14 | 4 | 62.5
-PETS2009 | 14 | 38 | 19 | 5 | 68
-VIRAT | 9 | 4 | 0 | 10 | 56.5
+
+| Dataset            | TP  | TN  | FP  | FN  | %    |
+| ------------------ | --- | --- | --- | --- | ---- |
+| Oxford Town Centre | 11  | 19  | 14  | 4   | 62.5 |
+| PETS2009           | 14  | 38  | 19  | 5   | 68   |
+| VIRAT              | 9   | 4   | 0   | 10  | 56.5 |
 
 **🎯 Accuracy for safety violation alert based on segmented ROI:**
-Dataset | TP | TN | FP | FN | %
-------- | -- | -- | -- | -- | --
-Oxford Town Centre | 55 | 58 | 0 | 5 | 95.8
+
+| Dataset            | TP  | TN  | FP  | FN  | %    |
+| ------------------ | --- | --- | --- | --- | ---- |
+| Oxford Town Centre | 55  | 58  | 0   | 5   | 95.8 |
 
 ---
 
