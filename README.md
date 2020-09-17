@@ -59,7 +59,7 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 
 ---
 
-### Kindly check out below links:
+## Kindly check out below links:
 
 ☕ [![MobileNetSSD Caffe](https://img.shields.io/badge/MobileNet_SSD_Caffe-Github-lightgrey)](https://github.com/chuanqi305/MobileNet-SSD)
 
