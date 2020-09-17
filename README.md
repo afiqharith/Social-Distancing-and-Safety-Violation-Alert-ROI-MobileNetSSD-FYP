@@ -39,7 +39,7 @@ $ python3 safety-violation(threading).py --video [path to input] --prototxt [pat
 | ![outputimage](/images/output.gif) |
 | ---------------------------------- |
 
-**_safety violation alert based on segmented ROI:_**
+**_Safety violation alert based on segmented ROI:_**
 | ![outputimage](/images/output2.gif) |
 | ----------------------------------- |
 
