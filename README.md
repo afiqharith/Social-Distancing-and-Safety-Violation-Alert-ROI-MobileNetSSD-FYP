@@ -68,9 +68,8 @@ _Credit:_ [![Github](https://img.shields.io/badge/chuanqi305-Github-lightgrey)](
 **📊 Dataset**
 
 MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face Recognition Image Datasets
-
 [![Oxford TownCentre](https://img.shields.io/badge/Oxford_Town_Centre-URL-yellowgreen)](https://megapixels.cc/)
+</br>
 
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline
-
 [![Oxford TownCentre](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
