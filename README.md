@@ -72,18 +72,7 @@ MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face
 </br>
 
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
-[![Oxford TownCentre](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
+[![CamNet](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
 
 **Publication**
-
-```sh
-@INPROCEEDINGS{9204934,
-  author={A. H. {Ahamad} and N. {Zaini} and M. F. A. {Latip}},
-  booktitle={2020 10th IEEE International Conference on Control System, Computing and Engineering (ICCSCE)},
-  title={Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI},
-  year={2020},
-  pages={113-118},
-  keywords={Covid-19;Person Detection;Social Distancing;Restricted Area;Segmented ROI},
-  doi={10.1109/ICCSCE50387.2020.9204934},
-  month={Aug},}
-```
+[![IEEE](https://img.shields.io/badge/IEEE_Xplore-URL-yellowgreen)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
