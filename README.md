@@ -74,7 +74,7 @@ MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 [![CamNet](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
 
-**Publication**
+**📑 Publication**
 
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
 [![IEEE](https://img.shields.io/badge/IEEE_Xplore-DOI-blue)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
