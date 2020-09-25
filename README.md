@@ -75,4 +75,5 @@ A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 [![CamNet](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
 
 **Publication**
-[![IEEE](https://img.shields.io/badge/IEEE_Xplore-URL-yellowgreen)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
+
+[![IEEE](https://img.shields.io/badge/Person_Detection_for_Social_Distancing_and_Safety_Violation_Alert_based_on_Segmented_ROI-DOI-yellowgreen)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
