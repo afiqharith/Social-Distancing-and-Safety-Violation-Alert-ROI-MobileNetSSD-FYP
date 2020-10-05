@@ -78,3 +78,8 @@ A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
 [![IEEE](https://img.shields.io/badge/IEEE_Xplore-DOI-blue)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
+</br>
+
+### LICENSE
+
+_This project is under MIT license, please look at [LICENSE](https://github.com/afiqharith/Social-Distancing-and-Safety-Violation-Alert-ROI-MobileNetSSD-FYP/blob/master/LICENSE)._
