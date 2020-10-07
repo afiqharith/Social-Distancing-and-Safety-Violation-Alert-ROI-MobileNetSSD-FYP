@@ -4,7 +4,7 @@
 
 # 🚶‍♂️ Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI ![FYP](https://img.shields.io/badge/Build-v1.0_pass-brightgreen) [![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)
 
-The idea of this project is to use MobileNet SSD with Caffe implementation as the person detection algorithm. The model pre-trained on MS-COCO by ![chuanqi305@github](https://github.com/chuanqi305/MobileNet-SSD). This program uses OpenCV API for image processing and utilizing the existing DNN module.
+Person detection algorithm used pre-trained model which is MobileNet SSD with Caffe implementation and the model pre-trained on MS-COCO by ![chuanqi305@github](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD'). Both programs uses OpenCV API for image processing and utilizing the DNN module solely depending on CPU. The programs later tested on several datasets to prove the concept.
 </br>
 
 _💻 To run the program on command line:_
