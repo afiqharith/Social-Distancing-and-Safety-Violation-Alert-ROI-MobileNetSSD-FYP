@@ -2,16 +2,14 @@ import cv2
 import numpy as np
 import argparse
 import math
-import config
+from config import Config
 
-#[b,g,r]
-blue = (255,0,0)
-green = (0,255,0)
-red = (0,0,255)
-yellow = (0,255,255)
-white = (255,255,255)
-orange = (0,165,255)
-font = cv2.FONT_HERSHEY_SIMPLEX
+GREEN = (0,255,0)
+RED = (0,0,255)
+YELLOW = (0,255,255)
+WHITE = (255,255,255)
+ORANGE = (0,165,255)
+FONTS = cv2.FONT_HERSHEY_SIMPLEX
 
 # construct the argument parse 
 parser = argparse.ArgumentParser(description='Script to run MobileNet-SSD object detection network ')
@@ -23,18 +21,7 @@ parser.add_argument('--weights', help='Path to weights [filename.caffemodel] ',
                     default='MobileNetSSD_deploy.caffemodel')
 
 args = parser.parse_args()
-
-if args.video == 'TownCentre.mp4':
-    threshold = config.towncentre['threshold']
-    distance = config.towncentre['distance']
-
-if args.video == 'PETS2009.mp4':
-    threshold = config.pets2009['threshold']
-    distance = config.pets2009['distance']
-
-if args.video == 'VIRAT.mp4':
-    threshold = config.virat['threshold']
-    distance = config.virat['distance']
+threshold, distance = Config.get(args.video)
 
 def calculateCentroid(xmin,ymin,xmax,ymax):
 
@@ -127,9 +114,9 @@ while True:
                   if get_distance(c[0],centroid[0],c[1],centroid[1]) <= distance:
                     box_colors[k] = 1
                     my_color = 1
-                    cv2.line(frame_rgb, (int(c[0]),int(c[1])), (int(centroid[0]),int(centroid[1])), yellow, 1,cv2.LINE_AA)
-                    cv2.circle(frame_rgb, (int(c[0]),int(c[1])), 3, orange, -1,cv2.LINE_AA)
-                    cv2.circle(frame_rgb, (int(centroid[0]),int(centroid[1])), 3, orange, -1,cv2.LINE_AA)
+                    cv2.line(frame_rgb, (int(c[0]),int(c[1])), (int(centroid[0]),int(centroid[1])), YELLOW, 1,cv2.LINE_AA)
+                    cv2.circle(frame_rgb, (int(c[0]),int(c[1])), 3, ORANGE, -1,cv2.LINE_AA)
+                    cv2.circle(frame_rgb, (int(centroid[0]),int(centroid[1])), 3, ORANGE, -1,cv2.LINE_AA)
                     break
                 
                 centroids.append(centroid)
@@ -142,23 +129,23 @@ while True:
       y2 = detectedBox[i][3]
       
       if box_colors[i] == 0:
-          cv2.rectangle(frame_rgb,(x1,y1),(x2,y2), white, 2,cv2.LINE_AA)
+          cv2.rectangle(frame_rgb,(x1,y1),(x2,y2), WHITE, 2,cv2.LINE_AA)
           label = "safe"
           labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)
 
           y1label = max(y1, labelSize[1])
           cv2.rectangle(frame_rgb, (x1, y1label - labelSize[1]),(x1 + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
-          cv2.putText(frame_rgb, label, (x1, y1), font, 0.5, green, 1,cv2.LINE_AA)
+          cv2.putText(frame_rgb, label, (x1, y1), FONTS, 0.5, GREEN, 1,cv2.LINE_AA)
       else:
-          cv2.rectangle(frame_rgb,(x1,y1),(x2,y2), red, 2)
-          # cv2.ellipse(frame, centroide, (35, 19), 0.0, 0.0, 360.0, red, 2)
+          cv2.rectangle(frame_rgb,(x1,y1),(x2,y2), RED, 2)
+          # cv2.ellipse(frame, centroide, (35, 19), 0.0, 0.0, 360.0, RED, 2)
 
           label = "unsafe"
           labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)
 
           y1label = max(y1, labelSize[1])
           cv2.rectangle(frame_rgb, (x1, y1label - labelSize[1]),(x1 + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
-          cv2.putText(frame_rgb, label, (x1, y1), font, 0.5, orange, 1,cv2.LINE_AA)
+          cv2.putText(frame_rgb, label, (x1, y1), FONTS, 0.5, ORANGE, 1,cv2.LINE_AA)
   
 
     #display output

@@ -1,25 +1,19 @@
-pets2009 = {
-	'threshold': 0.2,
-	'distance': 90 
-}
+class Config:
 
-towncentre = {
-	'threshold': 0.2,
-	'distance': 60 
-}
+	def get(VIDEONAME):
 
-virat = {
-	'threshold': 0.25,
-	'distance': 55 
-}
+		if VIDEONAME == 'TownCentre.mp4':
+			distance = 60
+			threshold = 0.2
+		
+		if VIDEONAME == 'PETS2009.mp4':
+			distance = 90
+			threshold = 0.2	
 
-def tc():
-	threshold=22
-	distance=1
+		if VIDEONAME == 'VIRAT.mp4':
+			distance = 55
+			threshold = 0.25
 
-	return threshold,distance
+		return threshold, distance
 
-# to import example:
-# import config
-# config.towncentre['threshold']
-# config.towncentre['distance']
+
