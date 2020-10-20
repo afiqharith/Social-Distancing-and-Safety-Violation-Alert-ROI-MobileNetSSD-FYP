@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 import argparse
 import math
-import config as cfg
+from config import Config
+from threading import Thread
 
 #[b,g,r]
 blue = (255,0,0)
@@ -18,9 +19,9 @@ parser = argparse.ArgumentParser(description='Script to run MobileNet-SSD object
 parser.add_argument('--video', help='path to video file. If empty, camera stream will be used', 
                     default="TownCentre.mp4" )
 parser.add_argument('--prototxt', help='Path to text network file [filename.prototxt] ', 
-                    default='MobileNetSSD_deploy.prototxt')
+                    default='utils/MobileNetSSD_deploy.prototxt')
 parser.add_argument('--weights', help='Path to weights [filename.caffemodel] ',
-                    default='MobileNetSSD_deploy.caffemodel')
+                    default='utils/MobileNetSSD_deploy.caffemodel')
 
 args = parser.parse_args()
 
@@ -61,17 +62,7 @@ class instanceThread:
 	    # Indicate that the camera and thread should be stopped
         self.stopped = True
 
-if args.video == 'TownCentre.mp4':
-    threshold = cfg.towncentre['threshold']
-    distance = cfg.towncentre['distance']
-
-if args.video == 'PETS2009.mp4':
-    threshold = cfg.pets2009['threshold']
-    distance = cfg.pets2009['distance']
-
-if args.video == 'VIRAT.mp4':
-    threshold = cfg.virat['threshold']
-    distance = cfg.virat['distance']
+threshold, distance = Config.get(args.video)
 
 def calculateCentroid(xmin,ymin,xmax,ymax):
 
@@ -148,28 +139,29 @@ while True:
             xmax   = int(widthFactor * xmax)
             ymax   = int(heightFactor * ymax)
 
-            # if class id is 15(person)
-            if class_id == 15:               
+            # if class id is not 15(person), ignore it
+            if class_id != 15:
+                continue            
                 
-                #calculate centroid point for bounding boxes
-                xmid, ymid, centroid = calculateCentroid(xmin,ymin,xmax,ymax)
+            #calculate centroid point for bounding boxes
+            xmid, ymid, centroid = calculateCentroid(xmin,ymin,xmax,ymax)
 
-                #subtitute xmin,ymin,xmax,ymax,centroid into array
-                detectedBox.append([xmin,ymin,xmax,ymax,centroid])
+            #subtitute xmin,ymin,xmax,ymax,centroid into array
+            detectedBox.append([xmin,ymin,xmax,ymax,centroid])
 
-                my_color = 0
-                for k in range (len(centroids)):
-                  c = centroids[k]
-                  if get_distance(c[0],centroid[0],c[1],centroid[1]) <= distance:
+            my_color = 0
+            for k in range (len(centroids)):
+                c = centroids[k]
+                if get_distance(c[0],centroid[0],c[1],centroid[1]) <= distance:
                     box_colors[k] = 1
                     my_color = 1
                     cv2.line(frame_rgb, (int(c[0]),int(c[1])), (int(centroid[0]),int(centroid[1])), yellow, 1,cv2.LINE_AA)
                     cv2.circle(frame_rgb, (int(c[0]),int(c[1])), 3, orange, -1,cv2.LINE_AA)
                     cv2.circle(frame_rgb, (int(centroid[0]),int(centroid[1])), 3, orange, -1,cv2.LINE_AA)
                     break
-                
-                centroids.append(centroid)
-                box_colors.append(my_color) # 0 or 1                
+            
+            centroids.append(centroid)
+            box_colors.append(my_color) # 0 or 1                
     
     for i in range (len(detectedBox)):
       x1 = detectedBox[i][0]

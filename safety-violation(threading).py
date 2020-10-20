@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import argparse
 import time
+from threading import Thread
 
 #[b,g,r]
 blue = (255,0,0)
@@ -15,9 +16,9 @@ parser = argparse.ArgumentParser(description='Script to run MobileNet-SSD object
 parser.add_argument('--video', help='path to video file. If empty, camera stream will be used', 
                     default="PRG23.mp4" )
 parser.add_argument('--prototxt', help='Path to text network file [filename.prototxt] ', 
-                    default='MobileNetSSD_deploy.prototxt')
+                    default='utils/MobileNetSSD_deploy.prototxt')
 parser.add_argument('--weights', help='Path to weights [filename.caffemodel] ',
-                    default='MobileNetSSD_deploy.caffemodel')
+                    default='utils/MobileNetSSD_deploy.caffemodel')
 parser.add_argument("--threshold", help='confidence threshold to filter out weak detections',
                     default=0.2, type=float)
 args = parser.parse_args()
@@ -150,23 +151,24 @@ while True:
             xmax   = int(widthFactor * xmax)
             ymax   = int(heightFactor * ymax)
 
-            # Draw location of object  
-            if class_id == 15:
+            # if class id is not 15(person), ignore it
+            if class_id != 15:
+                continue
                 
-                if 190 <= xmin <= 490 or 190 <= xmax <= 490:
-                    if 90 <= ymax <= 230:
-                        cv2.rectangle(modiframe, (xmin,ymin), (xmax,ymax), red, 2)
-                        label = 'Trespass'
-                        labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)
-                        yminlabel = max(ymin, labelSize[1])
-                        cv2.rectangle(frame_rgb, (xmin, yminlabel - labelSize[1]),(xmin + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
-                        cv2.putText(modiframe, label, (xmin, yminlabel-4),cv2.FONT_HERSHEY_SIMPLEX, 0.5, red, 2,cv2.LINE_AA)
-                
-                    else:
-                        pass
+            if 190 <= xmin <= 490 or 190 <= xmax <= 490:
+                if 90 <= ymax <= 230:
+                    cv2.rectangle(modiframe, (xmin,ymin), (xmax,ymax), red, 2)
+                    label = 'Trespass'
+                    labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)
+                    yminlabel = max(ymin, labelSize[1])
+                    cv2.rectangle(frame_rgb, (xmin, yminlabel - labelSize[1]),(xmin + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
+                    cv2.putText(modiframe, label, (xmin, yminlabel-4),cv2.FONT_HERSHEY_SIMPLEX, 0.5, red, 2,cv2.LINE_AA)
             
                 else:
                     pass
+        
+            else:
+                pass
 
     #Display output
     cv2.imshow('Full', modiframe)
