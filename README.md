@@ -77,7 +77,7 @@ A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 **📑 Publication**
 
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
-[![SCOPUS](https://img.shields.io/badge/WHO-DOI-blue)](https://pesquisa.bvsalud.org/global-literature-on-novel-coronavirus-2019-ncov/resource/en/covidwho-900811)
+[![IEEE](https://img.shields.io/badge/IEEE-DOI-blue)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
 </br>
 
 ### LICENSE
