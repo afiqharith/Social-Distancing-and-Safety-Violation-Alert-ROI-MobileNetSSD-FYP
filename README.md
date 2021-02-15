@@ -5,25 +5,25 @@
 Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD Caffe') with Caffe implementation and the model pre-trained on MS-COCO. Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
 </br>
 
-**_Install the dependencies on command line:_**
+_Install the dependencies on command line:_
 
 ```sh
 $ pip3 install -r requirement.txt
 ```
 
-**_To run the program on command line:_**
+_To run the program on command line:_
 
 ```sh
 $ python3 social-distanceApp.py
 ```
 
-**_Or_**
+_Or_
 
 ```sh
 $ python3 safety-violationApp.py
 ```
 
-_**Edit program configuration on **config.py**:**_
+_Edit program configuration on **config.py**:_
 
 - To use device's camera as program input, change `CAMERA = False` to `CAMERA = True`.
 - To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
