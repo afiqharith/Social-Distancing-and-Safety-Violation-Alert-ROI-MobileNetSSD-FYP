@@ -51,17 +51,17 @@ $ python3 safety-violationApp.py
 
 ## Kindly check out below links for references:
 
-**☕ Mobilenet SSD Caffe**
+**☕ Mobilenet SSD Caffe** </br>
 [![Github](https://img.shields.io/badge/chuanqi305-Github-lightgrey)](https://github.com/chuanqi305/) [![Github](https://img.shields.io/badge/FreeApe-Github-lightgrey)](https://github.com/FreeApe/VGG-or-MobileNet-SSD)
 
-**📊 Dataset**
+**📊 Dataset** </br>
 MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face Recognition Image Datasets </br>
 [![Oxford TownCentre](https://img.shields.io/badge/Oxford_Town_Centre-URL-yellowgreen)](https://exposing.ai/oxford_town_centre/)
 </br>
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 [![CamNet](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
 
-**📑 Publication**
+**📑 Publication** </br>s
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
 [![SCOPUS](https://img.shields.io/badge/DOI-SCOPUS-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
 </br>
