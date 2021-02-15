@@ -1,6 +1,8 @@
-# 🚶‍♂️ Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI ![FYP](https://img.shields.io/badge/Build-v1.0_pass-brightgreen) [![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)
+# Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI
 
-Person detection algorithm used is MobileNet SSD with Caffe implementation and the model pre-trained on MS-COCO by [chuanqi305@github](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD'). Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
+# ![FYP](https://img.shields.io/badge/Build-v1.0_pass-brightgreen) [![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE) [![SCOPUS](https://img.shields.io/badge/Index-SCOPUS-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
+
+Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD Caffe') with Caffe implementation and the model pre-trained on MS-COCO. Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
 </br>
 
 _💻 Install the dependencies on command line:_
@@ -15,23 +17,23 @@ _💻 To run the program on command line:_
 $ python3 social-distanceApp.py
 ```
 
+_Or_
+
 ```sh
 $ python3 safety-violationApp.py
 ```
 
-In order to run the program using device's camera, you are required to enable the camera setting in **config.py** file by changing `CAMERA = False` to `CAMERA = True`. To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
+_Edit program configuration on **config.py**:_
 
-</br>
+- To use device's camera as program input, change `CAMERA = False` to `CAMERA = True`.
+- To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
+  </br>
 
 ### 🎬 Output example:
 
-**_Social distance monitoring:_**
-| ![outputimage](/images/output.gif) |
-| ---------------------------------- |
-
-**_Safety violation alert based on segmented ROI:_**
-| ![outputimage](/images/output2.gif) |
-| ----------------------------------- |
+| **_Social distance monitoring:_**  | **_Safety violation alert based on segmented ROI:_** |
+| :--------------------------------: | :--------------------------------------------------: |
+| ![outputimage](/images/output.gif) |         ![outputimage](/images/output2.gif)          |
 
 **🎯 Accuracy for social distance monitoring:**
 
@@ -49,7 +51,7 @@ In order to run the program using device's camera, you are required to enable th
 
 ---
 
-## Kindly check out below links:
+## Kindly check out below links for references:
 
 ☕ [![MobileNetSSD Caffe](https://img.shields.io/badge/MobileNet_SSD_Caffe-Github-lightgrey)](https://github.com/chuanqi305/MobileNet-SSD)
 
@@ -58,7 +60,7 @@ _Credit:_ [![Github](https://img.shields.io/badge/chuanqi305-Github-lightgrey)](
 **📊 Dataset**
 
 MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face Recognition Image Datasets </br>
-[![Oxford TownCentre](https://img.shields.io/badge/Oxford_Town_Centre-URL-yellowgreen)](https://megapixels.cc/oxford_town_centre/)
+[![Oxford TownCentre](https://img.shields.io/badge/Oxford_Town_Centre-URL-yellowgreen)](https://exposing.ai/oxford_town_centre/)
 </br>
 
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
@@ -67,9 +69,9 @@ A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 **📑 Publication**
 
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
-[![IEEE](https://img.shields.io/badge/SCOPUS-DOI-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
+[![SCOPUS](https://img.shields.io/badge/DOI-SCOPUS-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
 </br>
 
 ### LICENSE
 
-_This project is under MIT license, please look at [LICENSE](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)._
+_This project is under MIT license, please refer [LICENSE](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)._
