@@ -23,7 +23,7 @@ $ python3 social-distanceApp.py
 $ python3 safety-violationApp.py
 ```
 
-**\_Edit program configuration on **config.py**:\_**
+_**Edit program configuration on **config.py**:**_
 
 - To use device's camera as program input, change `CAMERA = False` to `CAMERA = True`.
 - To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
@@ -61,7 +61,7 @@ MegaPixels: Origins, Ethics, and Privacy Implications of Publicly Available Face
 A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 [![CamNet](https://img.shields.io/badge/CamNeT-URL-yellowgreen)](https://vcg.ece.ucr.edu/datasets)
 
-**📑 Publication** </br>s
+**📑 Publication** </br>
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
 [![SCOPUS](https://img.shields.io/badge/DOI-SCOPUS-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
 </br>
