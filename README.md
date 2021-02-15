@@ -5,13 +5,13 @@
 Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD Caffe') with Caffe implementation and the model pre-trained on MS-COCO. Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
 </br>
 
-_💻 Install the dependencies on command line:_
+_Install the dependencies on command line:_
 
 ```sh
 $ pip3 install -r requirement.txt
 ```
 
-_💻 To run the program on command line:_
+_To run the program on command line:_
 
 ```sh
 $ python3 social-distanceApp.py
@@ -29,13 +29,13 @@ _Edit program configuration on **config.py**:_
 - To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
   </br>
 
-### 🎬 Output example:
+### Output example:
 
-| **_Social distance monitoring:_**  | **_Safety violation alert based on segmented ROI:_** |
-| :--------------------------------: | :--------------------------------------------------: |
-| ![outputimage](/images/output.gif) |         ![outputimage](/images/output2.gif)          |
+|  **_Social distance monitoring_**  | **_Safety violation alert based on segmented ROI_** |
+| :--------------------------------: | :-------------------------------------------------: |
+| ![outputimage](/images/output.gif) |         ![outputimage](/images/output2.gif)         |
 
-**🎯 Accuracy for social distance monitoring:**
+**Accuracy for social distance monitoring:**
 
 | Dataset            | TP  | TN  | FP  | FN  | %    |
 | ------------------ | --- | --- | --- | --- | ---- |
@@ -43,7 +43,7 @@ _Edit program configuration on **config.py**:_
 | PETS2009           | 14  | 38  | 19  | 5   | 68   |
 | VIRAT              | 9   | 4   | 0   | 10  | 56.5 |
 
-**🎯 Accuracy for safety violation alert based on segmented ROI:**
+**Accuracy for safety violation alert based on segmented ROI:**
 
 | Dataset | TP  | TN  | FP  | FN  | %    |
 | ------- | --- | --- | --- | --- | ---- |
