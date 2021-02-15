@@ -1,35 +1,25 @@
-<div align="center">
-  <img src="images/Github.png" width="250" height="250">
-</div>
-
 # 🚶‍♂️ Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI ![FYP](https://img.shields.io/badge/Build-v1.0_pass-brightgreen) [![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)
 
 Person detection algorithm used is MobileNet SSD with Caffe implementation and the model pre-trained on MS-COCO by [chuanqi305@github](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD'). Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
 </br>
 
+_💻 Install the dependencies on command line:_
+
+```sh
+$ pip3 install -r requirement.txt
+```
+
 _💻 To run the program on command line:_
 
-**Non-Threading program**
-
 ```sh
-$ python3 social-distance.py --video [input video] --prototxt [MobileNetSSD cfg] --weights [MobileNetSSD weights]
+$ python3 social-distanceApp.py
 ```
 
 ```sh
-$ python3 safety-violation.py --video [input video] --prototxt [MobileNetSSD cfg] --weights [MobileNetSSD weights]
+$ python3 safety-violationApp.py
 ```
 
-</br>
-
-**Threading program**
-
-```sh
-$ python3 social-distance(threading).py --video [input video] --prototxt [MobileNetSSD cfg] --weights [MobileNetSSD weights]weights]
-```
-
-```sh
-$ python3 safety-violation(threading).py --video [input video] --prototxt [MobileNetSSD cfg] --weights [MobileNetSSD weights]weights]
-```
+In order to run the program using device's camera, you are required to enable the camera setting in **config.py** file by changing `CAMERA = False` to `CAMERA = True`. To apply threading parallelism, change `THREAD = False` to `THREAD = True`.
 
 </br>
 
@@ -77,7 +67,7 @@ A Camera Network Tracking (CamNeT) Dataset and Performance Baseline </br>
 **📑 Publication**
 
 Person Detection for Social Distancing and Safety Violation Alert based on Segmented ROI </br>
-[![IEEE](https://img.shields.io/badge/IEEE-DOI-blue)](https://doi.org/10.1109/ICCSCE50387.2020.9204934)
+[![IEEE](https://img.shields.io/badge/SCOPUS-DOI-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
 </br>
 
 ### LICENSE
