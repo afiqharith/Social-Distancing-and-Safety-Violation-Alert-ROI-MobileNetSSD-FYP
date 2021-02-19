@@ -1,8 +1,6 @@
 # App configuration
 CAMERA = False
 THREAD = False
-
-CONFIDENCE = 0.2
 THRESHOLD = 0.4
 
 MODELPATH = "model/"

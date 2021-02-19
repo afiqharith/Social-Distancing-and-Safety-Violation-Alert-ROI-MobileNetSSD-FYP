@@ -22,8 +22,6 @@ class App:
             self.video = thread.ThreadingClass(VIDEOPATH)
         else:
             self.video = cv2.VideoCapture(VIDEOPATH)
-        
-        self.flag = True
 
         if START == True:
             self.main()
@@ -42,15 +40,15 @@ class App:
         except:
             sys.stdout.write('[FAILED] Unable to load model.')
 
-        while(self.flag):
+        while True:
 
             detectedBox = []
             centroids = []
             boxColors = []
 
-            self.flag, self.frame = self.video.read()
+            self.ret, self.frame = self.video.read()
 
-            if self.flag:
+            if self.ret:
                 self.frameResized = cv2.resize(self.frame,(300,300))
             else:
                 break
@@ -89,7 +87,7 @@ class App:
 
                     detectedBox.append([xmin,ymin,xmax,ymax,centroid])
 
-                    violation = 0
+                    my_color = 0
                     for k in range (len(centroids)):
                         c = centroids[k]
                         if self.calculateDistance(c[0], c[1], centroid[0], centroid[1]) <= DISTANCE:
@@ -100,7 +98,7 @@ class App:
                             cv2.circle(self.frame, (int(centroid[0]), int(centroid[1])), 3, ORANGE, -1, cv2.LINE_AA)
                             break
                     centroids.append(centroid)
-                    boxColors.append(violation)
+                    boxColors.append(my_color)
 
             for i in range (len(detectedBox)):
                 x1 = detectedBox[i][0]
