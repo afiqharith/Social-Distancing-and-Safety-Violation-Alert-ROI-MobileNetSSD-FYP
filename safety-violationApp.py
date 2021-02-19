@@ -25,6 +25,8 @@ class AppROI:
         else:
             self.video = cv2.VideoCapture(VIDEOPATH)
 
+        self.flag = True
+
         if START == True:
             self.main()
     
@@ -64,11 +66,11 @@ class AppROI:
         except:
             sys.stdout.write('[FAILED] Unable to load model.')
 
-        while True:
+        while(self.flag):
             # Capture frame-by-frame
-            self.ret, self.frame = self.video.read()
+            self.flag, self.frame = self.video.read()
 
-            if self.ret:
+            if self.flag:
                 self.frameResized = cv2.resize(self.frame,(300,300))
             else:
                 break
