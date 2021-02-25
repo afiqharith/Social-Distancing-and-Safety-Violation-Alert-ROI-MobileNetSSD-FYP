@@ -8,7 +8,7 @@ Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305
 _Install the dependencies on command line:_
 
 ```sh
-$ pip3 install -r requirement.txt
+$ pip3 install -r requirements.txt
 ```
 
 _To run the program on command line:_
