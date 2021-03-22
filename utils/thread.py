@@ -2,8 +2,8 @@ import cv2, threading, queue
 
 class ThreadingClass:
   # initiate threading class
-  def __init__(self, name):
-    self.cap = cv2.VideoCapture(name)
+  def __init__(self, *args):
+    self.cap = cv2.VideoCapture(args[0])
 	# define an empty queue and thread
     self.q = queue.Queue()
     t = threading.Thread(target=self._reader)

@@ -25,20 +25,14 @@ class AppROI:
         else:
             self.video = cv2.VideoCapture(VIDEOPATH)
 
-        self.flag = True
-
         if START == True:
             self.main()
     
-
-    def roiMask(self, frame_rgb):
-        
+    def roiMask(self, *src):
         overlay = cv2.imread(OVERLAY)
-        overlay = cv2.resize(overlay, frame_rgb.shape[1::-1])
-        opac = cv2.addWeighted(frame_rgb,0.5,overlay,0.3,0)
-
-        mask = np.zeros(frame_rgb.shape[0:2], dtype=np.uint8)
-
+        overlay = cv2.resize(overlay, src[0].shape[1::-1])
+        opac = cv2.addWeighted(src[0], 0.5, overlay, 0.3,0)
+        mask = np.zeros(src[0].shape[0:2], dtype=np.uint8)
         point = np.array([[190,230],[490,230],[450,90],[250,90]])
         line = np.array([[190,230],[490,230],[450,90],[250,90]])
 
@@ -51,36 +45,42 @@ class AppROI:
 
         # get second masked value (background) mask must be inverted
         mask_invert = cv2.bitwise_not(mask) #untuk dapatkan mask foreground
-        background = np.full(frame_rgb.shape, frame_rgb, dtype=np.uint8)
+        background = np.full(src[0].shape, src[0], dtype=np.uint8)
         bg = cv2.bitwise_or(background, background, mask=mask_invert)
 
         # combine foreground+background (combining fg and background w bitwise or)
         modiframe = cv2.bitwise_or(fg, bg)
         zero = cv2.bitwise_or(fg, bg)
-        return modiframe, bg, fg, fg_zero, line, mask, mask_invert
+        return modiframe, line
+    
+    def check_location(self, *args):
+        if 190 <= args[0] <= 490 or 190 <= args[1] <= 490:
+            if 90 <= args[2] <= 230:
+                return True
+            else:
+                return False
+        return False
 
     def main(self):
-
         try:
             net = cv2.dnn.readNetFromCaffe(PROTOTXTPATH, WEIGHTSPATH)
-        except:
+        except Exception:
             sys.stdout.write('[FAILED] Unable to load model.')
 
-        while(self.flag):
+        while(self.video.isOpened()):
             # Capture frame-by-frame
             self.flag, self.frame = self.video.read()
 
             if self.flag:
-                self.frameResized = cv2.resize(self.frame,(300,300))
+                self.frameResized = cv2.resize(self.frame,(300,300), interpolation = cv2.INTER_AREA)
             else:
                 break
                 
-
             self.frame = cv2.cvtColor(self.frame, cv2.IMREAD_COLOR)
-            modiframe, bg, fg, fg_zero, line, mask, mask_invert = self.roiMask(self.frame)
+            self.frame_modified, self.line = self.roiMask(self.frame)
             
             #region bounding for ROI
-            cv2.polylines(modiframe, [line], True, yellow, thickness=2)
+            cv2.polylines(self.frame_modified, [self.line], True, YELLOW, thickness=2)
 
             blob = cv2.dnn.blobFromImage(self.frameResized, 0.007843, (300, 300), (127.5, 127.5, 127.5), False)
             net.setInput(blob)
@@ -110,23 +110,16 @@ class AppROI:
                     if classID != 15:
                         continue   
                         
-                    if 190 <= xmin <= 490 or 190 <= xmax <= 490:
-                        if 90 <= ymax <= 230:
-                            cv2.rectangle(modiframe, (xmin,ymin), (xmax,ymax), red, 2)
-                            label = 'Trespass'
-                            labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)
-                            yminlabel = max(ymin, labelSize[1])
-                            cv2.rectangle(frame_rgb, (xmin, yminlabel - labelSize[1]),(xmin + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
-                            cv2.putText(modiframe, label, (xmin, yminlabel-4),cv2.FONT_HERSHEY_SIMPLEX, 0.5, red, 2,cv2.LINE_AA)
-                    
-                        else:
-                            pass
-                
-                    else:
-                        pass
+                    if self.check_location(xmin, xmax, ymax) == True:
+                        cv2.rectangle(self.frame_modified, (xmin,ymin), (xmax,ymax), RED, 2)
+                        label = 'err_area'
+                        labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.3, 1)
+                        yminlabel = max(ymin, labelSize[1])
+                        cv2.rectangle(self.frame_modified, (xmin, yminlabel - labelSize[1]),(xmin + labelSize[0], ymin + baseLine), RED, cv2.FILLED)
+                        cv2.putText(self.frame_modified, label, (xmin, yminlabel),cv2.FONT_HERSHEY_SIMPLEX, 0.3, WHITE, 1,cv2.LINE_AA)
 
             #Display output
-            cv2.imshow('Full', self.frame)
+            cv2.imshow('ROI', self.frame_modified)
             
             # Break with ESC 
             if cv2.waitKey(1) >= 0:  
@@ -136,7 +129,6 @@ class AppROI:
             pass
         else:
             self.video.release()
-
 
 if __name__ == '__main__':
     AppROI(VIDEOPATH, CAMERA)

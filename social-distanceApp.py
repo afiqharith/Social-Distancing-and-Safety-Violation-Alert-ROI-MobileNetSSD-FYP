@@ -26,18 +26,20 @@ class App:
         if START == True:
             self.main()
 
-    def calculateCentroid(self, xmn, ymn, xmx, ymx):
-        return (((xmx + xmn)/2), ((ymx + ymn)/2))
+    # @param func: (xmin, ymin, xmax, ymax)
+    def calculateCentroid(self, *param):
+        return (((param[0] + param[2])/2), ((param[1] + param[3])/2))
 
-    def calculateDistance(self, xc1, yc1, xc2, yc2):
+    # @param func: (xc1, yc1, xc2, yc2)
+    def calculateDistance(self, *param):
         # Apply Euclidean distance between two centre points
-        return math.sqrt((xc1-xc2)**2 + (yc1-yc2)**2)
+        return math.sqrt((param[0]-param[2])**2 + (param[1]-param[3])**2)
 
     def main(self):
 
         try:
             net = cv2.dnn.readNetFromCaffe(PROTOTXTPATH, WEIGHTSPATH)
-        except:
+        except Exception:
             sys.stdout.write('[FAILED] Unable to load model.')
 
         while(self.flag):
