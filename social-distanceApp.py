@@ -1,10 +1,10 @@
-import cv2
-import numpy as np
-import math
-import os
-import sys
 from utils.config import *
-from utils import thread
+import numpy as np
+import threading
+import math
+import cv2
+import sys
+import os
 
 FONTS = cv2.FONT_HERSHEY_SIMPLEX
 VIDEOPATH = os.path.join(os.getcwd(), FOLDERNAME, VIDEONAME)
@@ -13,18 +13,12 @@ PROTOTXTPATH = os.path.join(os.getcwd(), MODELPATH, PROTOTXT)
 
 class App:
     def __init__(self, VIDEOPATH, CAMERA, START = True):
-
-        if CAMERA == True and THREAD == True:
-            self.video = thread.ThreadingClass(0)
-        elif CAMERA == True and THREAD == False:
+        if CAMERA == True:
             self.video = cv2.VideoCapture(0)
-        elif CAMERA == False and THREAD == True:
-            self.video = thread.ThreadingClass(VIDEOPATH)
         else:
             self.video = cv2.VideoCapture(VIDEOPATH)
         self.flag = True
-        if START == True:
-            self.main()
+        if START == True: self.main()
 
     # @param func: (xmin, ymin, xmax, ymax)
     def calculateCentroid(self, *param):
@@ -49,6 +43,12 @@ class App:
             boxColors = []
 
             self.flag, self.frame = self.video.read()
+            if THREAD == True:
+                self.thread_1 = threading.Thread(target=self.video.read)
+                self.thread_1.daemon = True
+                self.thread_1.start()
+            else:
+                pass
 
             if self.flag:
                 self.frameResized = cv2.resize(self.frame,(300,300))
@@ -125,16 +125,13 @@ class App:
                     cv2.rectangle(self.frame, (x1, y1label - labelSize[1]),(x1 + labelSize[0], y1 + baseLine), (255, 255, 255), cv2.FILLED)
                     cv2.putText(self.frame, label, (x1, y1), FONTS, 0.5, ORANGE, 1,cv2.LINE_AA)
 
+            cv2.namedWindow('Social Distance', cv2.WINDOW_NORMAL)
             cv2.imshow('Social Distance', self.frame)
-
-            if cv2.waitKey(1) >= 0:  
+            if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-
-        if THREAD == True:
-            pass
-        else:
-            self.video.release()
+        self.video.release()
+        cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     App(VIDEOPATH, CAMERA)
-    cv2.destroyAllWindows()
+    

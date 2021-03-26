@@ -1,10 +1,10 @@
-import cv2
-import numpy as np
-import math
-import os
-import sys
 from utils.config import *
-from utils import thread
+import numpy as np
+import threading
+import math
+import cv2
+import sys
+import os
 
 FONTS = cv2.FONT_HERSHEY_SIMPLEX
 VIDEOPATH = os.path.join(os.getcwd(), FOLDERNAME, VIDEONAMEROI)
@@ -15,18 +15,12 @@ OVERLAY = os.path.join(os.getcwd(), IMAGESFOLDER, OVERLAYNAME)
 class AppROI:
 
     def __init__(self, VIDEOPATH, CAMERA, START = True):
-
-        if CAMERA == True and THREAD == True:
-            self.video = thread.ThreadingClass(0)
-        elif CAMERA == True and THREAD == False:
+        if CAMERA == True:
             self.video = cv2.VideoCapture(0)
-        elif CAMERA == False and THREAD == True:
-            self.video = thread.ThreadingClass(VIDEOPATH)
         else:
             self.video = cv2.VideoCapture(VIDEOPATH)
-
-        if START == True:
-            self.main()
+        self.flag = True
+        if START == True: self.main()
     
     def roiMask(self, *src):
         overlay = cv2.imread(OVERLAY)
@@ -70,6 +64,12 @@ class AppROI:
         while(self.video.isOpened()):
             # Capture frame-by-frame
             self.flag, self.frame = self.video.read()
+            if THREAD == True:
+                self.thread_1 = threading.Thread(target=self.video.read)
+                self.thread_1.daemon = True
+                self.thread_1.start()
+            else:
+                pass
 
             if self.flag:
                 self.frameResized = cv2.resize(self.frame,(300,300), interpolation = cv2.INTER_AREA)
@@ -119,17 +119,13 @@ class AppROI:
                         cv2.putText(self.frame_modified, label, (xmin, yminlabel),cv2.FONT_HERSHEY_SIMPLEX, 0.3, WHITE, 1,cv2.LINE_AA)
 
             #Display output
+            cv2.namedWindow('ROI', cv2.WINDOW_NORMAL)
             cv2.imshow('ROI', self.frame_modified)
-            
-            # Break with ESC 
-            if cv2.waitKey(1) >= 0:  
+            if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
-        if THREAD == True:
-            pass
-        else:
-            self.video.release()
+        self.video.release()
+        cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     AppROI(VIDEOPATH, CAMERA)
-    cv2.destroyAllWindows()
