@@ -1,4 +1,4 @@
-from utils.config import *
+from config.config import *
 import numpy as np
 import threading
 import math
