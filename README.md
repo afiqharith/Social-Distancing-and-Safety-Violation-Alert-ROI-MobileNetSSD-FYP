@@ -71,4 +71,4 @@ Person Detection for Social Distancing and Safety Violation Alert based on Segme
 
 #### LICENSE
 
-_This project is under MIT license, please refer [LICENSE](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)._
+_This project is licensed under the terms of the [MIT license](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE)._
