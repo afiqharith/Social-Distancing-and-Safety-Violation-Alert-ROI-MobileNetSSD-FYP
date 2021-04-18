@@ -2,7 +2,7 @@
 
 ![FYP](https://img.shields.io/badge/Build-v1.0_pass-brightgreen) [![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/afiqharith/SocialDistancing-SafetyViolationROI-MobileNetSSD-FYP/blob/master/LICENSE) [![SCOPUS](https://img.shields.io/badge/Index-SCOPUS-orange)](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85093867522&doi=10.1109%2fICCSCE50387.2020.9204934&partnerID=40&md5=375a3cd12ad9bd52e66b1a4201fefe89)
 
-Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD Caffe') with Caffe implementation and the model pre-trained on MS-COCO. Both programs uses OpenCV API for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
+Person detection algorithm used is [MobileNet SSD](https://github.com/chuanqi305/MobileNet-SSD 'MobileNet SSD Caffe') with Caffe implementation and the model pre-trained on MS-COCO. Both programs uses OpenCV for image processing and utilizing the DNN module (tested on CPU). The programs later tested on several datasets to prove the concepts.
 </br>
 
 ### 1. Prerequisites and configurations
